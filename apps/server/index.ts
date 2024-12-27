@@ -1,5 +1,5 @@
-import { createServer } from "node:http";
-import { Buffer } from "node:buffer";
+import { createServer } from "http";
+import { Buffer } from "buffer";
 import { WebSocketServer } from "ws";
 import { add } from "@droid-arena/utils";
 
@@ -10,12 +10,7 @@ wss.on("connection", (ws) => {
   console.log("Client connected");
 
   ws.on("message", (data: Buffer) => {
-    const message = JSON.parse(data.toString());
-    ws.send(
-      JSON.stringify({
-        content: message.content + " from server" + add(1, 2),
-      })
-    );
+    ws.send(data.toString() + " from server" + add(1, 2));
   });
 
   ws.on("close", () => {
