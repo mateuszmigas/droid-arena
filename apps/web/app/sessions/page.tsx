@@ -4,20 +4,21 @@ import { useEffect, useState, FormEvent } from "react";
 
 export default function Page() {
   const [ws, setWs] = useState<WebSocket | null>(null);
-  const [messages, setMessages] = useState<Array<{ content: string }>>([]);
+  const [messages, setMessages] = useState<string[]>([]);
   const [message, setMessage] = useState("");
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const socket = new WebSocket("ws://localhost:8080");
+    console.log(process.env.NEXT_PUBLIC_HELLO);
+    const socket = new WebSocket(process.env.NEXT_PUBLIC_SOCKET_URL!);
 
     socket.onopen = () => {
       setIsConnected(true);
     };
 
     socket.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-      setMessages((prev) => [...prev, message]);
+      console.log(event.data);
+      setMessages((prev) => [...prev, event.data]);
     };
 
     socket.onclose = () => {
@@ -34,12 +35,7 @@ export default function Page() {
   const handleMessageSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (message && ws?.readyState === WebSocket.OPEN) {
-      ws.send(
-        JSON.stringify({
-          username: "user",
-          content: message,
-        })
-      );
+      ws.send(JSON.stringify(message));
       setMessage("");
     }
   };
@@ -55,7 +51,7 @@ export default function Page() {
       <div className="border rounded p-4 h-[400px] mb-4 overflow-y-auto">
         {messages.map((msg, i) => (
           <div key={i} className="mb-2">
-            {msg.content}
+            {msg}
           </div>
         ))}
       </div>
