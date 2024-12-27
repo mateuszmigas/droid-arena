@@ -1,0 +1,19 @@
+{
+    "name": "@droid-arena/server",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "tsx ./index.ts"
+    },
+    "dependencies": {
+        "@droid-arena/utils": "workspace:*",
+        "ws": "^8.x"
+    },
+    "devDependencies": {
+        "@types/node": "^20.x",
+        "@types/ws": "^8.x",
+        "tsx": "^4.19.2",
+        "typescript": "^5.x"
+    }
+}
