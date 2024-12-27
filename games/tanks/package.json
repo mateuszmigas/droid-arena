@@ -1,0 +1,9 @@
+{
+    "name": "@droid-arena/tanks",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "dependencies": {
+        "@droid-arena/utils": "workspace:*"
+    }
+}
