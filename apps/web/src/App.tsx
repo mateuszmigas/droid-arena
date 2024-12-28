@@ -1,15 +1,31 @@
 import { add } from "@droid-arena/utils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { environment } from "./env";
 
 export const App = () => {
+  const [apiResponse, setApiResponse] = useState("");
+  const [wsResponse, setWsResponse] = useState("");
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:3002/ping");
+    const ws = new WebSocket(environment.ARENA_URL);
     ws.onmessage = (event) => {
-      console.log(event.data);
+      setWsResponse(event.data);
     };
     ws.onopen = () => {
       ws.send("Hello from the client!");
     };
   }, []);
-  return <div className="bg-red-500">Hello World {add(1, 3)}</div>;
+
+  useEffect(() => {
+    const run = async () => {
+      const response = await fetch(environment.LOBBY_URL);
+      setApiResponse(await response.text());
+    };
+    run();
+  }, []);
+  return (
+    <div className="bg-red-500">
+      <div>{apiResponse}</div>
+      <div>{wsResponse}</div>
+    </div>
+  );
 };

@@ -7,8 +7,9 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
-    "elysia": "latest",
-    "@droid-arena/utils": "workspace:*"
+    "@droid-arena/utils": "workspace:*",
+    "@elysiajs/cors": "^1.2.0",
+    "elysia": "latest"
   },
   "devDependencies": {
     "bun-types": "latest"
@@ -17,4 +18,3 @@
     "typescript": "^5.0.0"
   }
 }
-
