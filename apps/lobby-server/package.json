@@ -2,6 +2,15 @@
   "name": "@droid-arena/lobby-server",
   "version": "0.0.1",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "module": "index.ts",
+  "scripts": {
+    "dev": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
-
