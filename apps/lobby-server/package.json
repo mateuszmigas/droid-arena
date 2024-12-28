@@ -2,15 +2,19 @@
   "name": "@droid-arena/lobby-server",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "module": "index.ts",
+  "module": "src/index.js",
   "scripts": {
-    "dev": "bun run index.ts"
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "latest",
+    "@droid-arena/utils": "workspace:*"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "bun-types": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   }
 }
+
