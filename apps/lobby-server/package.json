@@ -1,0 +1,7 @@
+{
+  "name": "@droid-arena/lobby-server",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module"
+}
+

@@ -1,9 +1,9 @@
 {
-    "name": "@droid-arena/volley",
-    "version": "0.0.1",
-    "private": true,
-    "type": "module",
-    "dependencies": {
-        "@droid-arena/utils": "workspace:*"
-    }
+  "name": "@droid-arena/volley-game",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@droid-arena/utils": "workspace:*"
+  }
 }

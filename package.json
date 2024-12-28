@@ -2,6 +2,11 @@
   "name": "droid-arena",
   "version": "0.0.1",
   "description": "",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "games/*"
+  ],
   "scripts": {
     "dev:web": "pnpm --filter @droid-arena/web run dev",
     "build:web": "pnpm --filter @droid-arena/web run build",
