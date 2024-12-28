@@ -8,14 +8,14 @@
     "games/*"
   ],
   "scripts": {
-    "dev:web": "pnpm --filter @droid-arena/web run dev",
-    "build:web": "pnpm --filter @droid-arena/web run build",
-    "validate": "pnpm -r validate"
+    "dev:web": "bun --filter @droid-arena/web dev",
+    "build:web": "bun --filter @droid-arena/web build",
+    "validate": "bun --filter '*' validate"
   },
   "author": "Mateusz Migas",
   "license": "MIT",
-  "engines": {
-    "node": ">=18",
-    "pnpm": ">=3"
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
   }
 }
+
