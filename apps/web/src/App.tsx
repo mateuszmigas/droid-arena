@@ -1,24 +1,25 @@
-import { add } from "@droid-arena/utils";
 import { useEffect, useState } from "react";
-import { environment } from "./env";
+import { lobby, arena } from "./api";
 
 export const App = () => {
   const [apiResponse, setApiResponse] = useState("");
   const [wsResponse, setWsResponse] = useState("");
   useEffect(() => {
-    const ws = new WebSocket(environment.ARENA_URL);
-    ws.onmessage = (event) => {
+    const ws = arena.session.subscribe();
+    ws.on("message", (event) => {
       setWsResponse(event.data);
-    };
-    ws.onopen = () => {
+    });
+    ws.on("open", () => {
       ws.send("Hello from the client!");
-    };
+    });
   }, []);
 
   useEffect(() => {
     const run = async () => {
-      const response = await fetch(environment.LOBBY_URL);
-      setApiResponse(await response.text());
+      const response = await lobby.rooms.get();
+      if (response.data) {
+        setApiResponse(response.data);
+      }
     };
     run();
   }, []);
