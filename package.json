@@ -2,23 +2,21 @@
   "name": "droid-arena",
   "version": "0.0.1",
   "description": "",
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "games/*"
-  ],
   "scripts": {
-    "dev:web": "bun --filter @droid-arena/web dev",
-    "serve:web": "bun --filter @droid-arena/web serve",
-    "validate": "bun --filter '*' validate",
-    "dev:lobby": "bun --filter @droid-arena/lobby-server dev",
-    "dev:arena": "bun --filter @droid-arena/arena-server dev",
-    "dev": "bun dev:web & bun dev:lobby & bun dev:arena"
+    "dev:web": "pnpm --filter @droid-arena/web run dev",
+    "serve:web": "pnpm --filter @droid-arena/web run serve",
+    "validate": "pnpm -r validate",
+    "dev:lobby": "pnpm --filter @droid-arena/lobby-server run dev",
+    "dev:arena": "pnpm --filter @droid-arena/arena-server run dev",
+    "dev": "pnpm dev:web & pnpm dev:lobby & pnpm dev:arena"
   },
   "author": "Mateusz Migas",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "1.9.4"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=3"
   }
 }
-

@@ -1,42 +1,28 @@
+name: droid-arena
 services:
-  base:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: droid-arena-base
   web:
+    container_name: web
     build:
       context: .
       dockerfile: apps/web/Dockerfile
-    environment:
-      - VITE_LOBBY_URL=http://lobby-server:3001
-      - VITE_ARENA_URL=http://arena-server:3002
-      - NODE_ENV=production
     ports:
-      - 5173:5173
-    depends_on:
-      - lobby-server
-      - arena-server
+      - 5173:80
 
   lobby-server:
+    container_name: lobby-server
     build:
       context: .
       dockerfile: apps/lobby-server/Dockerfile
     ports:
       - "3001:3001"
-    depends_on:
-      - base
-      # db:
-        # condition: service_healthy
 
   arena-server:
+    container_name: arena-server
     build:
       context: .
       dockerfile: apps/arena-server/Dockerfile
     ports:
       - "3002:3002"
-    depends_on:
-      - base
 
 #   db:
 #     image: postgres

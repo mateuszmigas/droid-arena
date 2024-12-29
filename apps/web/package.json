@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "bun run --bun vite",
-    "build": "tsc -b && bun run --bun vite build",
-    "lint": "bun run --bun biome lint src",
-    "format": "bun run --bun biome format src",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "biome lint src",
+    "format": "biome format src",
     "serve": "vite preview --port 5173 --host",
     "check-types": "tsc --noEmit",
-    "validate": "bun run check-types && bun run lint"
+    "validate": "pnpm run check-types && pnpm run lint"
   },
   "dependencies": {
     "@elysiajs/eden": "^1.2.0",

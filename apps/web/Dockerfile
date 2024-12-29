@@ -1,23 +1,29 @@
-FROM droid-arena-base
+# syntax=docker/dockerfile:1.7-labs
 
-# Install Node.js
-USER root
-# Install prerequisites
-RUN apt-get update && apt-get install -y curl gnupg
+# Build the static files
+FROM node:20-slim AS build-stage
 
-# Add Node.js repository and install
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+ENV VITE_LOBBY_URL=http://localhost:3001
+ENV VITE_ARENA_URL=ws://localhost:3002
 
+RUN corepack enable
 
-USER bun
-WORKDIR /usr/src/app/apps/web
-EXPOSE 5173
+COPY pnpm-lock.yaml pnpm-workspace.yaml /app/
+COPY --parents **/package.json /app/
+WORKDIR /app
+RUN pnpm install --frozen-lockfile
 
-# Some workaround for rollup
-# RUN bun install @rollup/rollup-linux-x64-musl
-# RUN bun run build
+COPY . /app
+WORKDIR /app/apps/web
+RUN pnpm run build
 
-CMD ["tail", "-f", "/dev/null"]
-# ENTRYPOINT [ "bun", "run", "serve" ]
+# Serve the static files using Nginx
+FROM nginx:alpine AS production-stage
 
+COPY --from=build-stage /app/apps/web/dist /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+HEALTHCHECK CMD wget -q -O /dev/null http://localhost || exit 1
