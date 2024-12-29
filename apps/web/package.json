@@ -8,7 +8,7 @@
     "build": "tsc -b && bun run --bun vite build",
     "lint": "bun run --bun biome lint src",
     "format": "bun run --bun biome format src",
-    "preview": "vite preview",
+    "serve": "bun run --bun vite build && bun run --bun vite preview --port 5173",
     "check-types": "tsc --noEmit",
     "validate": "bun run check-types && bun run lint"
   },

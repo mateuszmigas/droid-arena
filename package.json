@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev:web": "bun --filter @droid-arena/web dev",
-    "build:web": "bun --filter @droid-arena/web build",
+    "serve:web": "bun --filter @droid-arena/web serve",
     "validate": "bun --filter '*' validate",
     "dev:lobby": "bun --filter @droid-arena/lobby-server dev",
     "dev:arena": "bun --filter @droid-arena/arena-server dev",

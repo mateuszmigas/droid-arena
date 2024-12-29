@@ -1,0 +1,63 @@
+services:
+  base:
+    build:
+      context: .
+      dockerfile: base.Dockerfile
+    image: droid-arena-base
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      - VITE_LOBBY_URL=http://lobby-server:3001
+      - VITE_ARENA_URL=http://arena-server:3002
+      - NODE_ENV=production
+    ports:
+      - 5174:5174
+    # depends_on:
+    #   - lobby-server
+    #   - arena-server
+
+  # lobby-server:
+  #   build:
+  #     context: .
+  #     dockerfile: apps/lobby-server/Dockerfile
+  #   ports:
+  #     - "3001:3001"
+  #   depends_on:
+  #     - base
+  #     # db:
+  #       # condition: service_healthy
+
+  # arena-server:
+  #   build:
+  #     context: .
+  #     dockerfile: apps/arena-server/Dockerfile
+  #   ports:
+  #     - "3002:3002"
+  #   depends_on:
+  #     - base
+
+#   db:
+#     image: postgres
+#     restart: always
+#     user: postgres
+#     secrets:
+#       - db-password
+#     volumes:
+#       - db-data:/var/lib/postgresql/data
+#     environment:
+#       - POSTGRES_DB=example
+#       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+#     expose:
+#       - 5432
+#     healthcheck:
+#       test: [ "CMD", "pg_isready" ]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+# volumes:
+#   db-data:
+# secrets:
+#   db-password:
+#     file: db/password.txt
