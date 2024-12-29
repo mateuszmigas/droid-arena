@@ -2,7 +2,7 @@ services:
   base:
     build:
       context: .
-      dockerfile: base.Dockerfile
+      dockerfile: Dockerfile
     image: droid-arena-base
   web:
     build:

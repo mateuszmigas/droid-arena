@@ -1,4 +1,4 @@
 FROM droid-arena-base
 USER bun
-EXPOSE 3002/tcp
-ENTRYPOINT [ "bun", "run", "apps/arena-server/src/index.ts" ]
+WORKDIR /usr/src/app/apps/arena-server
+ENTRYPOINT [ "bun", "run", "src/index.ts" ]
