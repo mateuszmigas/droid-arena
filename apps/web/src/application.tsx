@@ -25,7 +25,7 @@ export const App = () => {
   }, []);
   return (
     <div className="bg-red-500">
-      <div>Hello!</div>
+      <div>Hello 2!</div>
       <div>{apiResponse}</div>
       <div>{wsResponse}</div>
     </div>
