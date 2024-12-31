@@ -1,9 +1,11 @@
 import { Elysia } from "elysia";
-import { cors } from "@elysiajs/cors";
 
 const app = new Elysia()
-  .use(cors())
   .get("/rooms", () => "Hello Lobby Server")
+  .get("/users", () => [
+    { id: 1, name: "user1" },
+    { id: 2, name: "user2" },
+  ])
   .listen(3001);
 
 export type LobbyServerApp = typeof app;
@@ -11,4 +13,3 @@ export type LobbyServerApp = typeof app;
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
 );
-
