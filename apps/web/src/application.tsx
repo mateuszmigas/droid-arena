@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { lobby, arena } from "./api";
 import { GameSession } from "./pages/gameSession";
 
