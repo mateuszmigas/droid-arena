@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@droid-arena/utils": "workspace:*"
+    "@droid-arena/game-utils": "workspace:*",
+    "planck": "^1.1.5"
   }
 }

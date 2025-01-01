@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "biome lint src",
     "format": "biome format src",
     "serve": "vite preview --port 5173 --host",
+    "lint": "biome lint src",
     "check-types": "tsc --noEmit",
     "validate": "pnpm run check-types && pnpm run lint"
   },
@@ -21,6 +21,7 @@
     "@droid-arena/utils": "workspace:*",
     "@droid-arena/arena-server": "workspace:*",
     "@droid-arena/lobby-server": "workspace:*",
+    "@droid-arena/tanks-game": "workspace:*",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
