@@ -1,1 +1,1 @@
-export { RobotWarsGame } from "./src/game";
+export { TanksGame } from "./src/game";

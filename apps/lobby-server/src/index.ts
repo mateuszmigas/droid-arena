@@ -2,7 +2,11 @@ import { Elysia } from "elysia";
 import { createRedisPlugin } from "./redisPlugin";
 
 const app = new Elysia()
-  .use(createRedisPlugin())
+  .use(
+    createRedisPlugin({
+      url: process.env.REDIS_URL || "redis://localhost:6379",
+    })
+  )
   .get("/rooms", async ({ redis }) => {
     const value = await redis.get("room_requests");
     await redis.set(

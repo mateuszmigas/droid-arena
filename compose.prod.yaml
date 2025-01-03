@@ -22,6 +22,8 @@ services:
     restart: always
     ports:
       - 3001:3001
+    environment:
+      - REDIS_URL=redis://redis:6379
     deploy:
       resources:
         limits:

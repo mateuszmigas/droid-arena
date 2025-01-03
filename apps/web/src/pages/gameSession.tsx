@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { RobotWarsGame } from "@droid-arena/tanks-game";
+import { TanksGame } from "@droid-arena/tanks-game";
 
 export const GameSession = (props: {
   sessionId: string;
@@ -10,8 +10,8 @@ export const GameSession = (props: {
 
   useEffect(() => {
     if (gameHostRef.current) {
-      const game = new RobotWarsGame(gameHostRef.current, {
-        enableSound: true,
+      const game = new TanksGame(gameHostRef.current, {
+        enableSound: false,
         debug: true,
       });
       game.initialize();

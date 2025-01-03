@@ -14,7 +14,7 @@ type GameOptions = {
   debug: boolean;
 };
 
-export class RobotWarsGame implements Game {
+export class TanksGame implements Game {
   private ecs = new EntityComponentSystem<Component>();
   private systems: ISystem[] = [];
 
