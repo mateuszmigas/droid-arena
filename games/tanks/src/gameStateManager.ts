@@ -39,7 +39,7 @@ export class GameStateManager extends EventEmitter<GameEvent> {
         x: 100,
         y: 500,
       },
-      "#00ff00"
+      "#ff00ff"
     );
     createRobot(
       this.ecs,
