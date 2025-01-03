@@ -1,0 +1,49 @@
+name: droid-arena
+services:
+  web:
+    container_name: web
+    image: mateuszmigas/droid-arena:web
+    restart: always
+    ports:
+      - 5173:80
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  lobby-server:
+    container_name: lobby-server
+    image: mateuszmigas/droid-arena:lobby-server
+    restart: always
+    ports:
+      - 3001:3001
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  arena-server:
+    container_name: arena-server
+    image: mateuszmigas/droid-arena:arena-server
+    restart: always
+    ports:
+      - 3002:3002
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3" 
