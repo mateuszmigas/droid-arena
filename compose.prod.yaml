@@ -46,4 +46,16 @@ services:
       driver: "json-file"
       options:
         max-size: "10m"
-        max-file: "3" 
+        max-file: "3"
+
+  redis:
+    container_name: redis
+    image: redis:7-alpine
+    expose:
+      - 6379
+    volumes:
+      - redis-data:/data
+    command: redis-server --save 60 1 --loglevel warning
+
+volumes:
+  redis-data: 

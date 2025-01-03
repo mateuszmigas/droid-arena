@@ -10,6 +10,7 @@
   "dependencies": {
     "@droid-arena/utils": "workspace:*",
     "@elysiajs/cors": "^1.2.0",
+    "@redis/client": "^1.6.0",
     "bun": "^1.1.42",
     "elysia": "latest"
   },

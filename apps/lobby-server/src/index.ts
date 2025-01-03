@@ -1,11 +1,16 @@
 import { Elysia } from "elysia";
+import { createRedisPlugin } from "./redisPlugin";
 
 const app = new Elysia()
-  .get("/rooms", () => "Hello Lobby Server")
-  .get("/users", () => [
-    { id: 1, name: "user1" },
-    { id: 2, name: "user2" },
-  ])
+  .use(createRedisPlugin())
+  .get("/rooms", async ({ redis }) => {
+    const value = await redis.get("room_requests");
+    await redis.set(
+      "room_requests",
+      (value ? Number(value) + 1 : 1).toString()
+    );
+    return value;
+  })
   .listen(3001);
 
 export type LobbyServerApp = typeof app;
