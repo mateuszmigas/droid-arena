@@ -19,6 +19,8 @@ services:
       - REDIS_URL=redis://redis:6379
     ports:
       - 3001:3001
+    depends_on:
+      - redis
 
   arena-server:
     container_name: arena-server
