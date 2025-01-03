@@ -2,6 +2,7 @@ name: droid-arena
 services:
   web:
     container_name: web
+    image: mateuszmigas/droid-arena:web
     build:
       context: .
       dockerfile: apps/web/Dockerfile
@@ -10,19 +11,21 @@ services:
 
   lobby-server:
     container_name: lobby-server
+    image: mateuszmigas/droid-arena:lobby-server
     build:
       context: .
       dockerfile: apps/lobby-server/Dockerfile
     ports:
-      - "3001:3001"
+      - 3001:3001
 
   arena-server:
     container_name: arena-server
+    image: mateuszmigas/droid-arena:arena-server
     build:
       context: .
       dockerfile: apps/arena-server/Dockerfile
     ports:
-      - "3002:3002"
+      - 3002:3002
 
 #   db:
 #     image: postgres
