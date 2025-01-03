@@ -22,7 +22,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker-compose build
+          docker compose build
           docker push mateuszmigas/droid-arena:web
           docker push mateuszmigas/droid-arena:lobby-server
           docker push mateuszmigas/droid-arena:arena-server
@@ -36,3 +36,4 @@ jobs:
             -H "X-Signature: sha256=$SIGNATURE" \
             -d "$PAYLOAD" \
             ${{ secrets.WEBHOOK_URL }}
+
