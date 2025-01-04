@@ -8,7 +8,7 @@
     "validate": "pnpm -r validate",
     "dev:lobby": "pnpm --filter @droid-arena/lobby-server run dev",
     "dev:arena": "pnpm --filter @droid-arena/arena-server run dev",
-    "dev": "pnpm dev:web & pnpm dev:lobby & pnpm dev:arena"
+    "dev": "pnpm -r --parallel --aggregate-output dev"
   },
   "author": "Mateusz Migas",
   "license": "MIT",

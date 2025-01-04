@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: "web"
+    static_configs:
+      - targets: ["web:80"]
+
+  - job_name: "lobby-server"
+    static_configs:
+      - targets: ["lobby-server:3001"]
+
+  - job_name: "arena-server"
+    static_configs:
+      - targets: ["arena-server:3002"]
+
+  - job_name: "redis"
+    static_configs:
+      - targets: ["redis:6379"]
