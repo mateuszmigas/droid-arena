@@ -25,6 +25,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
+          cp infrastructure/.env.template infrastructure/.env
           docker compose -f infrastructure/compose.prod.yaml build
           docker push mateuszmigas/droid-arena:web
           docker push mateuszmigas/droid-arena:lobby-server
