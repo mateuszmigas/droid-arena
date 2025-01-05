@@ -1,36 +1,5 @@
 name: droid-arena
 services:
-  web:
-    container_name: web
-    image: mateuszmigas/droid-arena:web
-    build:
-      context: .
-      dockerfile: apps/web/Dockerfile
-    ports:
-      - 5173:80
-
-  lobby-server:
-    container_name: lobby-server
-    image: mateuszmigas/droid-arena:lobby-server
-    build:
-      context: .
-      dockerfile: apps/lobby-server/Dockerfile
-    environment:
-      - REDIS_URL=redis://redis:6379
-    ports:
-      - 3001:3001
-    depends_on:
-      - redis
-
-  arena-server:
-    container_name: arena-server
-    image: mateuszmigas/droid-arena:arena-server
-    build:
-      context: .
-      dockerfile: apps/arena-server/Dockerfile
-    ports:
-      - 3002:3002
-
   redis:
     container_name: redis
     image: redis:7-alpine
