@@ -8,3 +8,6 @@ node_modules
 **/.env.*
 !**/.env.template
 infrastructure/scripts/hooks.prod.json
+
+# tsbuildinfo
+*.tsbuildinfo
