@@ -3,7 +3,7 @@ import { AppHeader } from ".";
 
 export const App = () => {
   return (
-    <div className="flex flex-col h-screen w-screen text-white">
+    <div className="dark flex flex-col h-screen w-screen bg-background text-foreground">
       <AppHeader />
       <main className="flex-grow bg-black">
         <Outlet />
