@@ -25,8 +25,9 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          cp infrastructure/.env.template infrastructure/.env
-          docker compose -f infrastructure/compose.prod.yaml build
+          docker build -t mateuszmigas/droid-arena:web -f apps/web/Dockerfile .
+          docker build -t mateuszmigas/droid-arena:lobby-server -f apps/lobby-server/Dockerfile .
+          docker build -t mateuszmigas/droid-arena:arena-server -f apps/arena-server/Dockerfile .
           docker push mateuszmigas/droid-arena:web
           docker push mateuszmigas/droid-arena:lobby-server
           docker push mateuszmigas/droid-arena:arena-server
