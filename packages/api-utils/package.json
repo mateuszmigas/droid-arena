@@ -1,0 +1,11 @@
+{
+  "name": "@droid-arena/api-utils",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@elysiajs/cors": "^1.2.0",
+    "@redis/client": "^1.6.0",
+    "elysia": "^1.2.10"
+  }
+}

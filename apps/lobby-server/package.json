@@ -9,10 +9,11 @@
   },
   "dependencies": {
     "@droid-arena/utils": "workspace:*",
+    "@droid-arena/api-utils": "workspace:*",
     "@elysiajs/cors": "^1.2.0",
     "@redis/client": "^1.6.0",
     "bun": "^1.1.42",
-    "elysia": "latest"
+    "elysia": "^1.2.10"
   },
   "devDependencies": {
     "bun-types": "latest"

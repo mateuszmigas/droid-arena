@@ -1,12 +1,7 @@
 import { Elysia } from "elysia";
-import { createRedisPlugin } from "./redisPlugin";
-
+import { redisPlugin } from "@droid-arena/api-utils";
 const app = new Elysia()
-  .use(
-    createRedisPlugin({
-      url: process.env.REDIS_URL || "redis://localhost:6379",
-    })
-  )
+  .use(redisPlugin({ url: process.env.REDIS_URL || "redis://localhost:6379" }))
   .get("/rooms", async ({ redis }) => {
     const value = await redis.get("room_requests");
     await redis.set(
@@ -23,11 +18,17 @@ console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
 );
 
-const shutdown = async () => {
-  console.log("SIGINT or SIGTERM received, shutting down...");
-  await app.stop();
-  process.exit(0);
-};
+const shutdownPlugin = () =>
+  new Elysia().on("start", ({ app }) => {
+    const shutdown = async () => {
+      console.log("SIGINT or SIGTERM received, shutting down...");
+      await app.stop();
+      process.exit(0);
+    };
 
-process.on("SIGINT", shutdown);
-process.on("SIGTERM", shutdown);
+    process.on("SIGINT", shutdown);
+    process.on("SIGTERM", shutdown);
+  });
+
+app.use(shutdownPlugin());
+

@@ -9,8 +9,9 @@
   },
   "dependencies": {
     "@droid-arena/utils": "workspace:*",
+    "@droid-arena/api-utils": "workspace:*",
     "bun": "^1.1.42",
-    "elysia": "latest"
+    "elysia": "^1.2.10"
   },
   "devDependencies": {
     "bun-types": "latest"
