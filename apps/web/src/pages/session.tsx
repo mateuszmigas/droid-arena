@@ -1,9 +1,7 @@
 import { useEffect, useRef } from "react";
 import { TanksGame } from "@droid-arena/tanks-game";
 
-export const GameSession = (props: {
-  sessionId: string;
-}) => {
+export const Session = (props: { sessionId: string }) => {
   const { sessionId } = props;
   console.log(sessionId);
   const gameHostRef = useRef<HTMLDivElement>(null);
@@ -19,5 +17,6 @@ export const GameSession = (props: {
     }
   }, []);
 
-  return <div className="flex justify-center flex-col bg-blue-500 relative" ref={gameHostRef} />;
+  return <div className="size-full relative border" ref={gameHostRef} />;
 };
+

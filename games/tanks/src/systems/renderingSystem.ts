@@ -15,14 +15,19 @@ export class RenderingSystem implements ISystem {
   ) {
     const { size } = this.gameStateManager.getGameState();
     const terrainCanvas = new OffscreenCanvas(size.width, size.height);
+    this.terrainCtx = terrainCanvas.getContext("2d")!;
+    this.terrainCtx.translate(0, terrainCanvas.height);
+    this.terrainCtx.scale(1, -1);
+
     const canvas = this.createCanvas();
     this.hostElement.appendChild(canvas);
     this.ctx = canvas.getContext("2d")!;
     this.ctx.translate(0, canvas.height);
     this.ctx.scale(1, -1);
-    this.terrainCtx = terrainCanvas.getContext("2d")!;
-    this.terrainCtx.translate(0, terrainCanvas.height);
-    this.terrainCtx.scale(1, -1);
+    this.hostElement.style.display = "flex";
+    this.hostElement.style.justifyContent = "center";
+    this.hostElement.style.alignItems = "center";
+    this.hostElement.style.flexDirection = "column";
   }
 
   private createCanvas() {
@@ -122,3 +127,4 @@ export class RenderingSystem implements ISystem {
     return a.length === b.length && a.every((val, index) => val === b[index]);
   }
 }
+
