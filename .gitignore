@@ -7,3 +7,4 @@ node_modules
 **/.env
 **/.env.*
 !**/.env.template
+infrastructure/scripts/hooks.prod.json
