@@ -9,7 +9,7 @@ export const Lobby = () => {
 
   return (
     <div>
-      <h1>Lobby v2</h1>
+      <h1>Lobby v3</h1>
       <p>{isLoading ? "Loading..." : data?.data}</p>
     </div>
   );
