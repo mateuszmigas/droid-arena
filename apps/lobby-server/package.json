@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "bun run --watch src/index.ts",
     "build": "bun build ./src/index.ts --outdir ./dist --target=bun",
-    "check": "biome check src"
+    "check": "tsc -b --noEmit && biome check src"
   },
   "dependencies": {
     "@droid-arena/utils": "workspace:*",

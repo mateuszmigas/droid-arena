@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "format": "biome format src",
     "serve": "vite preview --port 5173 --host",
-    "check": "biome check src"
+    "check": "tsc -b --noEmit && biome check src"
   },
   "dependencies": {
     "@elysiajs/eden": "^1.2.0",

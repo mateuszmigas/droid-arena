@@ -1,5 +1,5 @@
 import { shutdownPlugin } from "@droid-arena/api-utils";
-import { Elysia, t } from "elysia";
+import { Elysia } from "elysia";
 import { roomsController } from "./controllers/rooms";
 
 const app = new Elysia().use(shutdownPlugin).use(roomsController).listen(3001);
