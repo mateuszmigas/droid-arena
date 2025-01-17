@@ -1,6 +1,6 @@
+import { Bell, Crown, Gamepad2, Trophy, Users } from "lucide-react";
 import { Link } from "react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Trophy, Users, Gamepad2, Crown, Bell } from "lucide-react";
 import { Button } from "./ui/button";
 
 const getNavigationLinks = () => [
@@ -57,4 +57,3 @@ export const AppHeader = () => {
     </nav>
   );
 };
-

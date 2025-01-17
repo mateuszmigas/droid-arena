@@ -1,5 +1,5 @@
-import { Elysia, t } from "elysia";
 import { shutdownPlugin } from "@droid-arena/api-utils";
+import { Elysia, t } from "elysia";
 
 const app = new Elysia()
   .use(shutdownPlugin)
@@ -15,6 +15,5 @@ const app = new Elysia()
 export type ArenaServerApp = typeof app;
 
 console.log(
-  `🤖 Arena server is running at ${app.server?.hostname}:${app.server?.port}`
+  `🤖 Arena server is running at ${app.server?.hostname}:${app.server?.port}`,
 );
-

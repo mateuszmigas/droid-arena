@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import { AppLayout } from "./appLayout.tsx";
 import { Game } from "../pages/game.tsx";
 import { Home } from "../pages/home.tsx";
 import { Lobby } from "../pages/lobby.tsx";
 import { Session } from "../pages/session.tsx";
+import { AppLayout } from "./appLayout.tsx";
 
 export const AppRoutes = () => (
   <BrowserRouter>
@@ -23,4 +23,3 @@ export const AppRoutes = () => (
     </Routes>
   </BrowserRouter>
 );
-

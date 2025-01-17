@@ -1,8 +1,8 @@
-import { lobby } from "../api.ts";
 import { useQuery } from "@tanstack/react-query";
+import { lobby } from "../api.ts";
 
 export const Lobby = () => {
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["rooms"],
     queryFn: () => lobby.rooms.get(),
   });
@@ -14,4 +14,3 @@ export const Lobby = () => {
     </div>
   );
 };
-

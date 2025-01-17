@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import { TanksGame } from "@droid-arena/tanks-game";
+import { useEffect, useRef } from "react";
 
 export const Session = (props: { sessionId: string }) => {
   const { sessionId } = props;
@@ -19,4 +19,3 @@ export const Session = (props: { sessionId: string }) => {
 
   return <div className="size-full relative border" ref={gameHostRef} />;
 };
-

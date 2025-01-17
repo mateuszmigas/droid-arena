@@ -59,4 +59,3 @@ export const Home = () => {
     </div>
   );
 };
-

@@ -3,4 +3,3 @@ import { createRedisPlugin } from "@droid-arena/api-utils";
 export const redis = await createRedisPlugin({
   url: process.env.REDIS_URL || "redis://localhost:6379",
 });
-
