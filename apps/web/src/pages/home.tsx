@@ -7,7 +7,7 @@ export const Home = () => {
       title: "Hotseat",
       description: "Play with friends locally",
       path: "/hotseat/session",
-      image: "/hotseat.png", // You'll need to add these images
+      image: "/hotseat.png",
     },
     {
       title: "Play vs AI",

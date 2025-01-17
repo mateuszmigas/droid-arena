@@ -6,6 +6,6 @@
   "dependencies": {
     "@elysiajs/cors": "^1.2.0",
     "@redis/client": "^1.6.0",
-    "elysia": "^1.2.10"
+    "elysia": "^1.2.0"
   }
 }
