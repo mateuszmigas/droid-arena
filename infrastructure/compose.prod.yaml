@@ -1,5 +1,14 @@
 name: droid-arena
 services:
+  watchtower:
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - "--label-enable"
+      - "--interval=30"
+
   web:
     container_name: web
     image: mateuszmigas/droid-arena:web
@@ -18,6 +27,7 @@ services:
     labels:
       - "prometheus.io/scrape=true"
       - "prometheus.io/port=80"
+      - "com.centurylinklabs.watchtower.enable=true"
 
   lobby-server:
     container_name: lobby-server
@@ -41,6 +51,7 @@ services:
     labels:
       - "prometheus.io/scrape=true"
       - "prometheus.io/port=3001"
+      - "com.centurylinklabs.watchtower.enable=true"
     networks:
       - internal
       - default
@@ -63,6 +74,7 @@ services:
     labels:
       - "prometheus.io/scrape=true"
       - "prometheus.io/port=3002"
+      - "com.centurylinklabs.watchtower.enable=true"
 
   redis:
     container_name: redis
