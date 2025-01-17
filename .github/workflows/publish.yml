@@ -32,13 +32,3 @@ jobs:
           docker push mateuszmigas/droid-arena:lobby-server
           docker push mateuszmigas/droid-arena:arena-server
 
-      - name: Trigger Deployment Webhook
-        run: |
-          PAYLOAD='{"triggered_by":"${{ github.actor }}"}'
-          SIGNATURE=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac "${{ secrets.WEBHOOK_SECRET }}" -hex | sed 's/^.* //')
-          curl -X POST \
-            -H "Content-Type: application/json" \
-            -H "X-Signature: sha256=$SIGNATURE" \
-            -d "$PAYLOAD" \
-            ${{ secrets.WEBHOOK_URL }}
-
