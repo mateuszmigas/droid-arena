@@ -44,11 +44,8 @@ services:
         limits:
           memory: ${LOBBY_SERVER_MEMORY}
     logging:
-      driver: "loki"
+      driver: "json-file"
       options:
-        loki-url: "http://loki:3100/loki/api/v1/push"
-        loki-retries: "5"
-        loki-batch-size: "400"
         max-size: "10m"
         max-file: "3"
     depends_on:
@@ -74,11 +71,8 @@ services:
         limits:
           memory: ${ARENA_SERVER_MEMORY}
     logging:
-      driver: "loki"
+      driver: "json-file"
       options:
-        loki-url: "http://loki:3100/loki/api/v1/push"
-        loki-retries: "5"
-        loki-batch-size: "400"
         max-size: "10m"
         max-file: "3"
     labels:
