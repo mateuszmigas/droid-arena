@@ -6,6 +6,7 @@
     "dev:web": "pnpm --filter @droid-arena/web run dev",
     "serve:web": "pnpm --filter @droid-arena/web run serve",
     "check": "pnpm -r check",
+    "format": "pnpm -r format",
     "dev:lobby": "pnpm --filter @droid-arena/lobby-server run dev",
     "dev:arena": "pnpm --filter @droid-arena/arena-server run dev",
     "dev": "pnpm -r --parallel --aggregate-output dev"

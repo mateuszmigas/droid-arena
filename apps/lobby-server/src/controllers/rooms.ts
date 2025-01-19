@@ -1,13 +1,16 @@
-import Elysia from "elysia";
-import { redis } from "../plugins";
+import { Elysia } from "elysia";
+import { logger, redis } from "../plugins";
 
 export const roomsController = new Elysia()
   .use(redis)
-  .get("/rooms", async ({ redis }) => {
+  .use(logger)
+  .get("/rooms", async ({ redis, log }) => {
     const value = await redis.get("room_requests");
-    await redis.set(
-      "room_requests",
-      (value ? Number(value) + 1 : 1).toString(),
-    );
+    const newValue = value ? Number(value) + 1 : 1;
+    await redis.set("room_requests", newValue.toString());
+    log.info(`Room requests count updated from ${value || 0} to ${newValue}`, {
+      method: "GET",
+      path: "/rooms",
+    });
     return value;
   });

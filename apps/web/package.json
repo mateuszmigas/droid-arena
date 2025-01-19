@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "format": "biome format src",
+    "format": "biome format src --fix",
     "serve": "vite preview --port 5173 --host",
     "check": "tsc -b --noEmit && biome check src"
   },
